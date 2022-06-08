@@ -1,0 +1,27 @@
+01. Description
+	본 프로젝트는 가산센서 기술을 API기반으로 서비스하기 위한 [창업지원단 프로젝트]입니다.
+	API 서비스의 프로세스는 client의 csv파일을 load > Modeling > h5모데파일 생성 > Testing 단계로 이루어져 있으며,
+	프로젝트에서는 Python 3, html, css 그리고 Python의 웹프레임워크 Flask를 활용하여 진행하였습니다.
+	개발 환경은 VS code와 Pycham에서 진행을 했습니다.
+
+02. Files 
+	1. Modeling.py : 가장 최초로 실행되는 파일이며, html파일과 상호작용하는 구조로 코드가 이루어짐.
+	   ## Html 파일은 templates 폴더에 들어있음
+	   A. Client의 csv file을 load하기위한 html파일을 실행
+	   B. A.단계에서 로드한 csv파일을 input data로 변환하고 keras, tensorflow 라이브러리를 이용한 머신러닝 학습을 진행하여 특정 디렉토리에 MLP.h5 모델 / 정규화 boundary.csv 저장 
+	   [학습에 있어 데이터 전처리 Z-score outlier 제거 / SMA / Min-Max normalization를 진행하였음]
+	   C. 학습결과를 html파일을 통하여 그래프, 성능지표를 시각화 해줌
+	
+	2. Testing.py : 학습이 완료되어 h5파일이 생성되면 이를 기반으로 가상센서 값을 return / 물리센서의 이상감지시 Slack어플에 알림을 보내는 파일임.
+		A. json 형식으로된 data 값을 입력받으면 해당 data를 Testing data로 활용하게 됨.
+		B. SMA와 Min-max normalization을 진행함 
+		C. Modeling.py에서 만들어진 h5모델을 load
+		D. FDD index 정의
+		E. 이상삼지시 Slack 어플로 정해진 토큰 / 정해진 채널로 이상감지 알람을 보내게 됨.
+	
+	3. Post.py : Client 입장에서 서비스를 이용하는 형태를 구현한 코드임. / 실제라면 DDC 판넬에서 센서값을 실시간으로 input해줘야 하지만 기술적인 한계로 
+	             testing용 csv파일을 한행씩 input으로 넘겨주는 방식으로 코드가 이루어져 있음. / 해당 파일은 Testing.py가 실행중인 상태로 실행을 해야 정상 작동됨.
+		A. 물리센서 값과 가상센서 값 그리고 Residual 값을 실시간으로 lineplot으로 그려주는 코드로 이루어져 있음 
+		B. Threshold 값은 빨간색으로 표현되어있음.
+
+	4. slack_msg_del.py : slack 어플에 쌓여있는 알람메세지를 지워주는 코드임.

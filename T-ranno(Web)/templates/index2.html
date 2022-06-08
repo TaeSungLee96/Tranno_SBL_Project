@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   
+    <title>Modeling is complete! / TAESUNG COMPANY</title>
+
+    <!-- 파일 경로-->
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-kopub/1.0/kopubdotum.css'>
+    <style>
+      div { font-family: 'KoPub Dotum'; font-size: 17px; }
+      div:nth-of-type(1) { font-weight: 300; }
+      div {text-align:center;}
+     
+    </style>
+
+    <!--외부 리소스 연결-->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+      <div style =  background-image: url('css/background.png');>
+      </div>
+
+<body>
+  <div>
+    <br>
+    <h3><strong><p style ="text-align:center;","color: #fff;">TAESUNG TECHNOLOGY</p></strong></h3>
+    <h1><p style ="text-align:center;","color: #fff;">Modeling is complite!</p></h1>
+    <br><br>
+  </div>
+
+  <div><img src="training_result.png" alt = "이미지가 없습니다." width="500"></div>
+  
+<br><br><br>
+  <h3><p style = "text-align:center;","color: #fff;">[ Virtual sensor information ]</p></h3>
+  <div class="print">
+    모델링 완료 시각 : {{Now_time}}
+    <br>
+    RMSE value : {{RMSE}}
+  </div>
+</body>

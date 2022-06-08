@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   
+    <title>T-ranno technology</title>
+
+    <!-- 파일 경로-->
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-kopub/1.0/kopubdotum.css'>
+    <style>
+      div { font-family: 'KoPub Dotum'; font-size: 17px; }
+      div:nth-of-type(1) { font-weight: 300; }
+      div {text-align:center;}
+
+
+    </style>
+
+    <!--외부 리소스 연결-->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+      <div style =  background-image: url('css/T-ranno_background.png');>
+      </div>
+
+<body>
+  <div>
+    <br><br>
+      <div>
+        {% if True %}
+          <img src="{{ url_for('static', filename="css/T_ranno_logo.png") }}" alt = "이미지가 없습니다.">
+        {% endif %}
+      </div>
+
+      <div id="sform">
+        <h3>Virtual sensor API key value</h3>
+        http://127.0.0.1:5000/testing
+        <button id="copyBtn"> Copy </button>
+        <script>
+            var copyBtn = document.getElementById("copyBtn");
+            // 버튼 클릭 이벤트
+            copyBtn.addEventListener("click", function(){
+               // 복사할 텍스트를 변수에 할당해줍니다.
+                //var text = document.getElementById("textDiv").innerText;
+                // input text 태그를 생성해줍니다.
+                //var createInput = document.createElement("input");
+                //createInput.setAttribute("type", "text");
+                // 가상으로 가져올 태그에 만들어준 input 태그를 붙여줍니다.
+                //document.getElementById("textDiv").appendChild(createInput);
+                // 만든 input 태그의 value 값에 복사할 텍스트 값을 넣어줍니다.
+                //createInput.value = text;
+                // 복사 기능을 수행한 후
+                //createInput.select();
+                //document.execCommand('copy');
+                // 가상으로 붙여주었던 input 태그를 제거해줍니다.
+                //document.getElementById("textDiv").removeChild(createInput);
+                alert('가상센서 API key값이 발급 및 복사 되었습니다.');
+            });
+        </script>
+      </div>
+    <h1><p style ="text-align:center;","color: #fff;">Modeling is complited!</p></h1>
+    <h3><p style ="text-align:center;","color: #fff;">This is your virtual sensor model training result</p></h3>
+  </div>
+
+  <div>
+  {% if True %}
+    <img src="{{ url_for('static', filename="css/modeling_result.png") }}" alt = "이미지가 없습니다." width="400">
+  {% endif %}
+  </div>
+
+  <h2><p style = "text-align:center;","color: #fff;">Virtual sensor information</p></h2>
+  <div class="print">
+
+
+  <div>
+
+  </div>
+
+
+  <style>
+    table {
+      
+      width: 55%;
+      border-top: 1px solid #FFFFFF;
+      border-collapse: collapse;
+    }
+    th, td {
+      border-bottom: 1px solid #FFFFFF;
+      padding: 10px;
+    }
+  </style>
+      <table align="center" >
+      <thead>
+        <tr align="left">
+          <th></th><th>Value</th><th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr align="left">
+          <td>모델링 완료 시각</td><td>{{Now_time}}</td><td>가상센서 모델의 모델링이 완료된 시각을 의미</td>
+        </tr>
+        <tr align="left">
+          <td>RMSE</td><td>{{RMSE}}</td><td>RMSE(Root Mean Square Error)의 약자로서 평균 제곱근 오차를 의미<br>대표적으로 사용되는 오차 값 측도임</td>
+        </tr>
+      </body>
+      </table>
+    
+  </div>
+</body>

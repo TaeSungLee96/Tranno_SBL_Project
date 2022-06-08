@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   
+    <title>Upload file for training / T-ranno</title>
+
+    <!-- 파일 경로-->
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-kopub/1.0/kopubdotum.css'>
+    <style>
+      div { font-family: 'KoPub Dotum'; font-size: 17px; }
+      div:nth-of-type(1) { font-weight: 300; }
+      div {text-align:center;}
+    </style>
+
+    <!--외부 리소스 연결-->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+<body>
+
+    <!-- <a href="https://xkskxhtm96.wixsite.com/website" target = "_blank">Go to T-ranno company</a>-->
+
+  <div>
+    <br><br><br><br><br>
+
+     {% if True %}
+       <img src="{{ url_for('static', filename='css/T_ranno_logo.png') }}" alt = "이미지가 없습니다.">
+     {% endif %}
+
+    <!--<nav><h1><strong><p style ="text-align:center;","color: #fff;">TAESUNG TECHNOLOGY</p></strong></h1></nav>-->
+    <h4><p style ="text-align:center;","color: #fff;">Efficient building energy management with Virtual Sensor </p></h4>
+    <br><br>
+    <h3><p style ="text-align:center;">가상센서 트레이닝을 위해 파일을 업로드해 주세요!</p></h3>
+    <br><br><br><br>
+  </div>
+
+    <!--공지사항-->
+    <ul style = "margin-left: 29%;">
+      <li>csv 파일을 업로드 해주세요.</li>
+    </ul>
+    
+        <form action="/fileUpload" method="POST" enctype="multipart/form-data">
+            
+            <input type="file" name="file"/><br/>
+            <input type="submit" value="submit"/>
+        </form>
+</body>
+</html>
